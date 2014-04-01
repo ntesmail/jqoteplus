@@ -1,0 +1,30 @@
+{
+    "boss": true,
+    "curly": true,
+    "eqeqeq": false,
+    "eqnull": true,
+    "expr": true,
+    "immed": true,
+    "multistr":true,
+    "noarg": true,
+    "onevar": false,
+    "quotmark": false,
+    "smarttabs": false,
+    "shadow": true,
+    "trailing": true,
+    "undef": true,
+    "unused": false,
+    "plusplus": false,
+    "sub": true,
+    "passfail": false,
+    "-W099":true,
+    "es3": true,
+
+    "browser": true,
+    "jquery": true,
+    "predef": [
+        "define", "$", "$Browser"
+    ],
+
+    "node": true
+}

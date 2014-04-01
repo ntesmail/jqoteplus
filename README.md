@@ -1,4 +1,2 @@
 jqoteplus
 =========
-
-jqote plus

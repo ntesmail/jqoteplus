@@ -88,9 +88,11 @@ jqoteplus是前端模板，所以你也可以嵌套调用模板
     $.jqotefn(template)
     $.jqotetag(tag)
 ```
-* `$.jqote(template, data[, tag])` 编译并且执行模板方法。返回执行结果
+###`$.jqote(template, data[, tag])`
+    
+编译并且执行模板方法。返回执行结果(String)
 
->Demo:
+Demo:
 ```js
     var template = "<h1><%=this.title%></h1>" +
         "<div>hello, <%=this.name || 'World'%></div>"
@@ -102,9 +104,11 @@ jqoteplus是前端模板，所以你也可以嵌套调用模板
     $('#content').html(html);
 ```
 
-* `$.jqotec(template, data[, tag])` 编译jqoteplus方法，返回编译后的方法
+###`$.jqotec(template, data[, tag])` 
 
->Demo:
+编译jqoteplus方法，返回编译后的方法
+
+Demo:
 ```js
     var template = "<h1><%=this.title%></h1>" +
         "<div>hello, <%=this.name || 'World'%></div>"
@@ -115,9 +119,11 @@ jqoteplus是前端模板，所以你也可以嵌套调用模板
     var lambda = $('#demo').jqote(data);
 ```
 
-* `$.jqotefn(template)` jqoteplus使用 `$.jqotecache` 缓存已经编译的结果，这个方法可以获取缓存中的模板函数，没有编译过返回false
+### `$.jqotefn(template)`
 
->Demo:
+jqoteplus使用 `$.jqotecache` 缓存已经编译的结果，这个方法可以获取缓存中的模板函数，没有编译过返回false
+
+Demo:
 ```js
     var template = "<h1><%=this.title%></h1>" +
         "<div>hello, <%=this.name || 'World'%></div>"
@@ -128,7 +134,7 @@ jqoteplus是前端模板，所以你也可以嵌套调用模板
     var lambda = $('#demo').jqote(data);
 ```
 
-* `$.jqotetag(tag)` 设置模板编译的tag，默认tag为`%`。
+### `$.jqotetag(tag)` 设置模板编译的tag，默认tag为`%`。
 
 >Demo:
 ```js

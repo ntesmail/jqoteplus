@@ -78,6 +78,7 @@
 
     $.extend({
         jqote: function(elem, data, t) {
+            elem = $.jqotecache[elem] || elem; 
             var str = '',
                 fn = lambda(elem, t);
             t = t || tag;

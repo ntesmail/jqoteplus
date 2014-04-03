@@ -8,33 +8,33 @@
 </head>
 
 <body>
-<div id="content"></div>
+
+<listing>
+    <script id="demo" type="text/x-jqote-template">
+        <h1><%=this.title%></h1>
+        <div>hello, <%=this.name || 'World'%></div>
+    </script>
+</listing>
 <pre>
     var html = $('#demo').jqote(data);
     $('#content').html(html);
 </pre>
-<script id="demo" type="text/html">
-<% if (this.isAdmin) { %>
-
-<h1><%=this.title%></h1>
-<ul>
-    <% for (var i = 0; i < this.list.length; i ++) { %>
-        <li><%= i + 1 %> ：<%= this.list[i] %></li>
-    <% } %>
-</ul>
-
-<% } %>
+<div id="content"></div>
+<script id="demo" type="text/x-jqote-template">
+    <h1><%=this.title%></h1>
+    <div>hello, <%=this.name%></div>
 </script>
 
 <script>
-var data = {
-    title: 'Demo',
-    isAdmin: true,
-    list: ['food', 'food', 'food', 'food', 'food', 'food', 'food']
-};
+var data = [{
+        title: 'Demo',
+        name: 'Len'
+    },{
+        title: 'Demo2'
+    }];
 var html = $('#demo').jqote(data);
-console.log(html);
 $('#content').html(html);
+
 </script>
 </body>
 </html>

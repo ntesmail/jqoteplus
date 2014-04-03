@@ -23,7 +23,7 @@
     "browser": true,
     "jquery": true,
     "predef": [
-        "define", "$", "$Browser"
+        "define", "$"
     ],
 
     "node": true

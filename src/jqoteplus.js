@@ -176,8 +176,8 @@
             }
 
             if (ie) {
-                strArr.pop('try{');
-                strArr.pop(mode[5]);
+                strArr.unshift('try{');
+                strArr.unshift(mode[5]);
                 strArr.push(mode[6]);
                 strArr.push('}catch(e){e.type="' + JQOTE2_TMPL_EXEC_ERROR + '";e.args=arguments;e.template=arguments.callee.toString();throw e;}');
                 str = strArr.join('');

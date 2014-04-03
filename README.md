@@ -136,7 +136,7 @@ Demo:
 
 ### `$.jqotetag(tag)` 设置模板编译的tag，默认tag为`%`。
 
->Demo:
+Demo:
 ```js
     $.jqotetag('&');
 ```
@@ -150,6 +150,17 @@ Demo:
 
 ## 预编译
 jqoteplus预编译是基于Grunt的一个工具，[jqoteplus-build](https://github.com/ntesmail/jqoteplus-build)
+
+```html
+    <script id="demo" type="text/x-jqote-template">
+        <h1><%=this.title%></h1>
+        <div>hello, <%=this.name || 'World'%></div>
+    </script>
+```
+编译后根据模板的id，可以直接调用模板。
+```js
+    $.jqote('demo', data);
+```
 
 ## License
 jqoteplus.js is available under the terms of the [MIT License](https://github.com/ntesmail/jqoteplus/blob/master/LICENSE).

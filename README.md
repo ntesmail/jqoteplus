@@ -51,7 +51,7 @@ Javascript:
 [demo](src/demo/demo.html)
 
 ## 进阶
-你也可以将模板定义在js中或者动态加载的结果中，再进行模板的编译调用。
+你也可以将模板定义在js中或者动态加载的结果中，再进行模板的编译调用。重复调用使用`$.jqote(template, data)`的效率会比`$(template).jqote(data);`好
 
 ```js
     var template = '<div>whos u <%=this.name%></div>';
@@ -95,28 +95,24 @@ jqoteplus是前端模板，所以你也可以嵌套调用模板
 Demo:
 ```js
     var template = "<h1><%=this.title%></h1>" +
-        "<div>hello, <%=this.name || 'World'%></div>"
+        "<div>hello, <%=this.name || 'World'%></div>";
     var data = {
         title: 'Demo',
         name: 'Len'
     };
-    var html = $('#demo').jqote(data);
+    var html = $.jqote(template, data);
     $('#content').html(html);
 ```
 
-###`$.jqotec(template, data[, tag])` 
+###`$.jqotec(template[, tag])` 
 
 编译jqoteplus方法，返回编译后的方法
 
 Demo:
 ```js
     var template = "<h1><%=this.title%></h1>" +
-        "<div>hello, <%=this.name || 'World'%></div>"
-    var data = {
-        title: 'Demo',
-        name: 'Len'
-    };
-    var lambda = $('#demo').jqote(data);
+        "<div>hello, <%=this.name || 'World'%></div>";
+    var lambda = $.jqotec(template);
 ```
 
 ### `$.jqotefn(template)`
@@ -126,12 +122,13 @@ jqoteplus使用 `$.jqotecache` 缓存已经编译的结果，这个方法可以�
 Demo:
 ```js
     var template = "<h1><%=this.title%></h1>" +
-        "<div>hello, <%=this.name || 'World'%></div>"
+        "<div>hello, <%=this.name || 'World'%></div>";
     var data = {
         title: 'Demo',
         name: 'Len'
     };
-    var lambda = $('#demo').jqote(data);
+    var html = $.jqote(template, data);
+    $.jqotefn(template);
 ```
 
 ### `$.jqotetag(tag)` 设置模板编译的tag，默认tag为`%`。

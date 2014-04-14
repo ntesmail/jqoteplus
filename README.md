@@ -58,7 +58,7 @@ Javascript:
     var data = {
         name: 'daddy'
     };
-    var html = $('#demo').jqote(data);
+    var html = $.jqote(template, data);
     $('#content').html(html);
 ```
 [demo](src/demo/demo.html)

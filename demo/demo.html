@@ -19,6 +19,7 @@
     }
     .result{
         border: 1px dotted #3d9871;
+        padding: 10px;
     }
 </style>
 </head>
@@ -68,6 +69,24 @@
 </pre>
 </code>
 
+<h3>嵌套调用</h3>
+<code>
+<pre>
+    var template = 'jqoteplus is <%=this.name%> !<%=$("#demo").jqote(this.content);%>';
+    var data = {
+        name: 'amazing',
+        content: {
+            title: 'Demo',
+            name: 'Len'
+        }
+    };
+    var html = $.jqote(template, data);
+    $('#content3').html(html);
+</pre>
+</code>
+<h3>结果</h3>
+<div id="content3" class="result"></div>
+
 <script id="demo" type="text/x-jqote-template">
     <h1><%=this.title%></h1>
     <div>hello, <%=this.name%></div>
@@ -92,6 +111,17 @@ $('#content1').html(html);
 
 var lambda = $.jqotec($('#demo')[0].innerHTML);
 $("#content2").html(lambda.toString().replace(/>/gm, '&gt;').replace(/</gm, '&lt;'));
+// 嵌套调用
+var template = 'jqoteplus is <%=this.name%> !<%=$("#demo").jqote(this.content);%>';
+var data = {
+    name: 'amazing',
+    content: {
+        title: 'Demo',
+        name: 'Len'
+    }
+};
+var html = $.jqote(template, data);
+$('#content3').html(html);
 </script>
 </body>
 </html>

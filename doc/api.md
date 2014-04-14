@@ -3,7 +3,7 @@
 ### 预览
 ```js
     $(template).jqote(data[, tag])
-    $.jqote(template, data[, tag])
+    $.jqote(template, data[, tag])(推荐使用)
     $.jqotec(template[, tag])
     $.jqotefn(template)
     $.jqotetag(tag)
@@ -49,7 +49,7 @@ Demo:
         name: 'Len'
     };
     var html = $('#demo').jqote(data);
-    var html2 = $.jqote($('#demo').innerHTML, data);
+    var html2 = $.jqote($('#demo')[0].innerHTML, data);
     $('#content').html(html);
 ```
 
@@ -66,7 +66,7 @@ Demo:
 ```js
     var template = "<h1><%=this.title%></h1>" +
         "<div>hello, <%=this.name || 'World'%></div>";
-    var lambda = $.jqotec($('#demo').innerHTML);
+    var lambda = $.jqotec($('#demo')[0].innerHTML);
 ```
 
 Result:

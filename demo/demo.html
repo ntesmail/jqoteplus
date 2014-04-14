@@ -5,21 +5,69 @@
 <title>basic-demo</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <script src="../src/jqoteplus.js"></script>
+<style type="text/css">
+    
+    h3{
+        background:#3d9871;color:#fff;padding:0 10px;margin:20px 0 10px;font:normal normal normal 16px/30px "Microsoft Yahei",Arial,sans-serif
+    }
+    pre{
+        margin: 10px 0 0 0;
+        padding: 10px;
+        border: 0;
+        border: 1px dotted #785;
+        background: #f5f5f5;
+    }
+    .result{
+        border: 1px dotted #3d9871;
+    }
+</style>
 </head>
 
 <body>
 
-<listing>
-    <script id="demo" type="text/x-jqote-template">
-        <h1><%=this.title%></h1>
-        <div>hello, <%=this.name || 'World'%></div>
-    </script>
-</listing>
+<h3>$(template).jqote(data)</h3>
+<code>
 <pre>
+    var data = [{
+        title: 'Demo',
+        name: 'Len'
+    },{
+        title: 'Demo2'
+    }];
     var html = $('#demo').jqote(data);
     $('#content').html(html);
 </pre>
-<div id="content"></div>
+</code>
+<h3>结果</h3>
+<div id="content" class="result"></div>
+
+<h3>$.jqote(template, data[, tag])</h3>
+<code>
+<pre>
+    var data = {
+        title: 'Demo',
+        name: 'Len'
+    };
+    var html = $.jqote($('#demo').innerHTML, data);
+    $('#content1').html(html);
+</pre>
+</code>
+<h3>结果</h3>
+<div id="content1" class="result"></div>
+    
+<h3>$.jqotec(template[, tag])</h3>
+<code>
+<pre>
+    var lambda = $.jqotec($('#demo')[0].innerHTML);
+    $("content2").html(lambda.toString());
+</pre>
+</code>
+<h3>结果</h3>
+<code>
+<pre id="content2">
+</pre>
+</code>
+
 <script id="demo" type="text/x-jqote-template">
     <h1><%=this.title%></h1>
     <div>hello, <%=this.name%></div>
@@ -35,6 +83,15 @@ var data = [{
 var html = $('#demo').jqote(data);
 $('#content').html(html);
 
+var data1 = {
+    title: 'Demo',
+    name: 'Len'
+};
+var html = $.jqote($('#demo')[0].innerHTML, data1);
+$('#content1').html(html);
+
+var lambda = $.jqotec($('#demo')[0].innerHTML);
+$("#content2").html(lambda.toString().replace(/>/gm, '&gt;').replace(/</gm, '&lt;'));
 </script>
 </body>
 </html>

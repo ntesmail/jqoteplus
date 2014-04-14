@@ -48,7 +48,7 @@ Javascript:
         <div>hello, World</div>
     </div>
 ```
-[demo](src/demo/demo.html)
+[demo](https://github.com/ntesmail/jqoteplus/blob/master/demo/demo.html)
 
 ## 进阶
 你也可以将模板定义在js中或者动态加载的结果中，再进行模板的编译调用。重复调用使用`$.jqote(template, data)`的效率会比`$(template).jqote(data);`好
@@ -61,7 +61,7 @@ Javascript:
     var html = $.jqote(template, data);
     $('#content').html(html);
 ```
-[demo](src/demo/demo.html)
+[demo](https://github.com/ntesmail/jqoteplus/blob/master/demo/demo.html)
 
 jqoteplus是前端模板，所以你也可以嵌套调用模板
 ```js
@@ -76,7 +76,7 @@ jqoteplus是前端模板，所以你也可以嵌套调用模板
     var html = $.jqote(template, data);
     $('#content').html(html);
 ```
-[demo](src/demo/demo.html)
+[demo](https://github.com/ntesmail/jqoteplus/blob/master/demo/demo.html)
 
 ## API快速上手
 
